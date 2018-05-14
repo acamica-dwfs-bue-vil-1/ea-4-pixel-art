@@ -1,4 +1,5 @@
-var nombreColores = ['White', 'LightYellow',
+var nombreColores = [
+  'White', 'LightYellow',
   'LemonChiffon', 'LightGoldenrodYellow', 'PapayaWhip', 'Moccasin', 'PeachPuff', 'PaleGoldenrod', 'Bisque', 'NavajoWhite', 'Wheat', 'BurlyWood', 'Tan',
   'Khaki', 'Yellow', 'Gold', 'Orange', 'DarkOrange', 'OrangeRed', 'Tomato', 'Coral', 'DarkSalmon', 'LightSalmon', 'LightCoral', 'Salmon', 'PaleVioletRed',
   'Pink', 'LightPink', 'HotPink', 'DeepPink', 'MediumVioletRed', 'Crimson', 'Red', 'FireBrick', 'DarkRed', 'Maroon',
@@ -20,6 +21,9 @@ var nombreColores = ['White', 'LightYellow',
   'DimGray', 'LightSlateGray', 'DarkSlateGray', 'Black'
 ];
 
+var paleta = document.getElementById('paleta');
+var grillaPixeles = document.getElementById('grilla-pixeles');
+
 // Variable para guardar el elemento 'color-personalizado'
 // Es decir, el que se elige con la rueda de color.
 var colorPersonalizado = document.getElementById('color-personalizado');
@@ -33,3 +37,22 @@ colorPersonalizado.addEventListener('change',
 
   })
 );
+
+function generarColores () {
+  for (i = 0; i < nombreColores.length; i++) {
+    var div = document.createElement('div');
+    div.style.backgroundColor = nombreColores[i];
+    div.className = 'color-paleta';
+    paleta.appendChild(div);
+  }
+}
+
+function generarPixeles () {
+  for (i = 0; i <= 1750; i++) {
+    var div = document.createElement('div');
+    grillaPixeles.appendChild(div);
+  }
+}
+
+generarColores();
+generarPixeles();
