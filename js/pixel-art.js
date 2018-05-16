@@ -23,6 +23,7 @@ var nombreColores = [
 
 var paleta = document.getElementById('paleta');
 var grillaPixeles = document.getElementById('grilla-pixeles');
+var indicadorColor = document.getElementById('indicador-de-color');
 
 // Variable para guardar el elemento 'color-personalizado'
 // Es decir, el que se elige con la rueda de color.
@@ -33,8 +34,7 @@ colorPersonalizado.addEventListener('change',
     // Se guarda el color de la rueda en colorActual
     colorActual = colorPersonalizado.value;
     // Completar para que cambie el indicador-de-color al colorActual
-
-
+    indicadorColor.style.backgroundColor = colorActual;
   })
 );
 
@@ -53,6 +53,29 @@ function generarPixeles () {
     grillaPixeles.appendChild(div);
   }
 }
+
+paleta.addEventListener('click', cambiarColor);
+function cambiarColor (e) {
+  console.log(e.target);
+  var color = e.target.style.backgroundColor
+  console.log(color);
+  indicadorColor.style.backgroundColor = color;
+}
+
+grillaPixeles.addEventListener('click', pintar)
+function pintar (e) {
+e.target.style.backgroundColor = indicadorColor.style.backgroundColor;
+}
+
+var estadoMouse = 0;
+grillaPixeles.addEventListener('mousedown', function(){
+  estadoMouse = 1;   
+  console.log(estadoMouse);  
+  });
+grillaPixeles.addEventListener('mouseup', function(){
+  estadoMouse = 0;  
+  console.log(estadoMouse);
+  });
 
 generarColores();
 generarPixeles();
