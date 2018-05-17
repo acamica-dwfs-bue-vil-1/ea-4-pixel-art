@@ -62,20 +62,27 @@ function cambiarColor (e) {
   indicadorColor.style.backgroundColor = color;
 }
 
-grillaPixeles.addEventListener('click', pintar)
+grillaPixeles.addEventListener('click', pintar);
 function pintar (e) {
-e.target.style.backgroundColor = indicadorColor.style.backgroundColor;
+  e.target.style.backgroundColor = indicadorColor.style.backgroundColor;
 }
 
 var estadoMouse = 0;
 grillaPixeles.addEventListener('mousedown', function(){
   estadoMouse = 1;   
-  console.log(estadoMouse);  
-  });
+  console.log(estadoMouse);    
+});
 grillaPixeles.addEventListener('mouseup', function(){
   estadoMouse = 0;  
   console.log(estadoMouse);
-  });
+});
+
+grillaPixeles.addEventListener('mouseover', pintarEnMov);
+function pintarEnMov (e) {
+  if (estadoMouse === 1) {
+    pintar(e);
+  }
+}
 
 generarColores();
 generarPixeles();
