@@ -84,5 +84,32 @@ function pintarEnMov (e) {
   }
 }
 
+$('#borrar').click(borrarPantalla);
+
+function borrarPantalla () {
+  $('#grilla-pixeles').children().animate({'background-color': 'white'}, 1000);
+}
+
+$('#guardar').click(guardarPixelArt);
+
+$('.imgs img').click(function(){
+  var $superheroe = $(this).attr('id');
+  console.log($superheroe);
+  switch ($superheroe) {
+    case 'batman': 
+      cargarSuperheroe(batman);
+      break;
+    case 'flash': 
+      cargarSuperheroe(flash);
+      break;
+    case 'wonder': 
+      cargarSuperheroe(wonder);
+      break;
+    case 'invisible': 
+      cargarSuperheroe(invisible);
+      break;
+  }
+});
+
 generarColores();
 generarPixeles();
