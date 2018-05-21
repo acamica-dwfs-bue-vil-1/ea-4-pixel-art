@@ -25,6 +25,10 @@ var paleta = document.getElementById('paleta');
 var grillaPixeles = document.getElementById('grilla-pixeles');
 var indicadorColor = document.getElementById('indicador-de-color');
 
+//Llamo acá a las funciones creadas.
+generarColores();
+generarPixeles();
+
 // Variable para guardar el elemento 'color-personalizado'
 // Es decir, el que se elige con la rueda de color.
 var colorPersonalizado = document.getElementById('color-personalizado');
@@ -111,5 +115,21 @@ $('.imgs img').click(function(){
   }
 });
 
-generarColores();
-generarPixeles();
+//FUNCIONES ADICIONALES
+$('.color-paleta').hover(
+  function(){
+    $(this).animate({'width': '20px', 'height': '20px'}, 300);
+  }, 
+  function(){
+    $(this).animate({'width': '15px', 'height': '15px'}, 300);
+  });
+
+  // $(paleta).hover(
+  //   function(){
+  //     // console.log($(this.attr('class')));
+  //     $(this).children().animate({'width': '20px', 'height': '20px'}, 200);
+  //   }, 
+  //   function(){
+  //     // console.log($(this.attr('class')));
+  //     $(this).children().animate({'width': '15px', 'height': '15px'}, 200);
+  //   });
