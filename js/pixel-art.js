@@ -24,6 +24,7 @@ var nombreColores = [
 var paleta = document.getElementById('paleta');
 var grillaPixeles = document.getElementById('grilla-pixeles');
 var indicadorColor = document.getElementById('indicador-de-color');
+var indicadorColorSecundario = document.getElementById('indicador-de-color-secundario');
 
 //Llamo acá a las funciones creadas.
 generarColores();
@@ -116,20 +117,29 @@ $('.imgs img').click(function(){
 });
 
 //FUNCIONES ADICIONALES
+//Sombrea los colores al hacer hover sobre ellos.
 $('.color-paleta').hover(
   function(){
-    $(this).animate({'width': '20px', 'height': '20px'}, 300);
+    $(this).addClass('inner-shadow');
   }, 
   function(){
-    $(this).animate({'width': '15px', 'height': '15px'}, 300);
+    $(this).removeClass('inner-shadow');
   });
 
-  // $(paleta).hover(
-  //   function(){
-  //     // console.log($(this.attr('class')));
-  //     $(this).children().animate({'width': '20px', 'height': '20px'}, 200);
-  //   }, 
-  //   function(){
-  //     // console.log($(this.attr('class')));
-  //     $(this).children().animate({'width': '15px', 'height': '15px'}, 200);
-  //   });
+//Asignar segundo color al pincel
+// $('.element').bind("contextmenu",function(e){
+//   alert('Context Menu event has fired!');
+//   return false;
+paleta.addEventListener('contextmenu', cambiarColorSecundario);
+function cambiarColorSecundario (e) {
+  var color = e.target.style.backgroundColor
+  indicadorColorSecundario.style.backgroundColor = color;
+}
+grillaPixeles.addEventListener('contextmenu', pintarSecundario);
+function pintarSecundario (e) {
+  e.target.style.backgroundColor = indicadorColorSecundario.style.backgroundColor;
+}
+  //Borrar píxel.
+function borrar () {
+  $(this).css('background-color', 'none');
+}

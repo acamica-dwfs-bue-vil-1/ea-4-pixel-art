@@ -20,7 +20,7 @@
   <script defer src="js/recursos.js"></script>
   <script defer src="js/pixel-art.js"></script>
 </head>
-  <body>
+  <body oncontextmenu="return false;">
 
     <section id="container">
       <main>
@@ -35,6 +35,10 @@
           <p id="indicador-de-color-mensaje">Pincel</p>
         </li>
         <li>
+        <li>
+          <span id="indicador-de-color-secundario" class="cursor-personalizado"></span>
+          <p id="indicador-de-color-mensaje">Pincel secundario</p>
+        </li>
           <input id="color-personalizado" class="input-color" type="color" name="name" value="#ffffff">
           <p class="custom input-color">rueda de colores</p>
         </li>

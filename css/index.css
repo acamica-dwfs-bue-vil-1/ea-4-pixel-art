@@ -120,6 +120,13 @@ main {
   flex-direction: row-reverse
 
 }
+
+.inner-shadow {
+  box-shadow: inset .5px .5px .5px .5px;
+  transition: 100ms;
+
+}
+
 #container, li, .imgs {
  display: flex;
  align-items:center;
@@ -140,7 +147,7 @@ img {
    margin: 10px 0;
    justify-content: space-between;
  }
-#indicador-de-color {
+#indicador-de-color, #indicador-de-color-secundario {
   height: 30px;
   width: 30px;
   border: 1px solid white;
@@ -148,7 +155,7 @@ img {
   position: relative;
 
 }
-#indicador-de-color:after {
+#indicador-de-color:after, #indicador-de-color-secundario:after{
   content: "";
   position: absolute;
   z-index: -1;
