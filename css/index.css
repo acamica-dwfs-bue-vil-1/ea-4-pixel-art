@@ -49,8 +49,9 @@ ul {
 }
 p {
   text-transform: uppercase;
-  font-size: .3em;
+  font-size: .7em;
   text-align: right;
+  color: white
 }
 h1 {
   color: white;
@@ -147,7 +148,7 @@ img {
    margin: 10px 0;
    justify-content: space-between;
  }
-#indicador-de-color, #indicador-de-color-secundario {
+#indicador-de-color, #indicador-de-color-secundario, #goma-de-borrar {
   height: 30px;
   width: 30px;
   border: 1px solid white;
@@ -164,6 +165,26 @@ img {
   height: 29px;
   width: 29px;
   background: url(../img/empty.gif);
+}
+
+#goma-de-borrar{
+  background-color: white;
+  cursor: pointer;
+} 
+.borde-rojo {
+  border: 2px solid red !important;
+}
+
+.Black:hover, .DarkSlateGray:hover, .LightSlateGray:hover, .DimGray:hover, .Gray:hover, .DarkGray:hover, .DarkBlue:hover, .Navy:hover, .DarkSlateBlue:hover, .Indigo:hover, .DarkMagenta:hover, .Purple:hover, .Blue:hover, .MediumBlue:hover, .DarkBlue:hover, .Brown:hover, .Maroon:hover, .DarkRed:hover, .FireBrick:hover, .Sienna:hover, .SaddleBrown:hover {
+  box-shadow: inset .5px .5px .5px .5px white;
+}
+
+.imgs img:hover {
+  transform: scale(1.1);
+  transition-duration: 200ms;
+}
+.imgs img {
+  transition-duration: 200ms;  
 }
 #indicador-de-color-mensaje {
   color: white;

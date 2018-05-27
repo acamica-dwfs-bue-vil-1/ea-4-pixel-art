@@ -48,6 +48,7 @@ function generarColores () {
     var div = document.createElement('div');
     div.style.backgroundColor = nombreColores[i];
     div.className = 'color-paleta';
+    $(div).addClass(nombreColores[i]);
     paleta.appendChild(div);
   }
 }
@@ -69,7 +70,11 @@ function cambiarColor (e) {
 
 grillaPixeles.addEventListener('click', pintar);
 function pintar (e) {
-  e.target.style.backgroundColor = indicadorColor.style.backgroundColor;
+  if (borrar === false) {  
+    e.target.style.backgroundColor = indicadorColor.style.backgroundColor;
+  }else{
+    e.target.style.backgroundColor = 'white';
+  }
 }
 
 var estadoMouse = 0;
@@ -139,7 +144,21 @@ grillaPixeles.addEventListener('contextmenu', pintarSecundario);
 function pintarSecundario (e) {
   e.target.style.backgroundColor = indicadorColorSecundario.style.backgroundColor;
 }
-  //Borrar píxel.
-function borrar () {
-  $(this).css('background-color', 'none');
-}
+
+//Goma de borrar.
+var borrar = false;
+var indicadorColorTemp;
+$('#goma-de-borrar').click(function () {
+  console.log(indicadorColorTemp);
+  if (borrar === false) {
+    borrar = true;
+    indicadorColorTemp = indicadorColor.style.backgroundColor;    
+    indicadorColor.style.backgroundColor = 'transparent';
+  }else{
+    borrar = false;
+    indicadorColor.style.backgroundColor = indicadorColorTemp;
+    
+  }
+  $('#goma-de-borrar').toggleClass('borde-rojo');
+
+});
