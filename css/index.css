@@ -119,13 +119,11 @@ main {
   margin: 20px auto;
   justify-content: center;
   flex-direction: row-reverse
-
 }
 
 .inner-shadow {
   box-shadow: inset .5px .5px .5px .5px;
   transition: 100ms;
-
 }
 
 #container, li, .imgs {

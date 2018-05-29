@@ -62,10 +62,12 @@ function generarPixeles () {
 
 paleta.addEventListener('click', cambiarColor);
 function cambiarColor (e) {
-  console.log(e.target);
-  var color = e.target.style.backgroundColor
-  console.log(color);
-  indicadorColor.style.backgroundColor = color;
+  if (borrar === false) {  
+    console.log(e.target);
+    var color = e.target.style.backgroundColor
+    console.log(color);
+    indicadorColor.style.backgroundColor = color;
+  }
 }
 
 grillaPixeles.addEventListener('click', pintar);
