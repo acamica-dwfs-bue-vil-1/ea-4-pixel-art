@@ -63,9 +63,7 @@ function generarPixeles () {
 paleta.addEventListener('click', cambiarColor);
 function cambiarColor (e) {
   if (borrar === false) {  
-    console.log(e.target);
-    var color = e.target.style.backgroundColor
-    console.log(color);
+    var color = e.target.style.backgroundColor;
     indicadorColor.style.backgroundColor = color;
   }
 }
@@ -82,11 +80,9 @@ function pintar (e) {
 var estadoMouse = 0;
 grillaPixeles.addEventListener('mousedown', function(){
   estadoMouse = 1;   
-  console.log(estadoMouse);    
 });
 grillaPixeles.addEventListener('mouseup', function(){
   estadoMouse = 0;  
-  console.log(estadoMouse);
 });
 
 grillaPixeles.addEventListener('mouseover', pintarEnMov);
@@ -110,7 +106,7 @@ $('.imgs img').click(function(){
 });
 
 //FUNCIONES ADICIONALES
-//Sombrea los colores al hacer hover sobre ellos.
+//Sombrea los colores de la paleta al hacer hover.
 $('.color-paleta').hover(
   function(){
     $(this).addClass('inner-shadow');
@@ -151,7 +147,7 @@ $('#goma-de-borrar').click(function () {
   $('#goma-de-borrar').toggleClass('borde-rojo');
 });
 
-//Animación.
+//Animación del título.
 $(document).ready (function(){
   let titulo = $('header h1').children();
   let x = 21;
