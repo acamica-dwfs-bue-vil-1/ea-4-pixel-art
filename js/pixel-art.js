@@ -105,22 +105,8 @@ function borrarPantalla () {
 $('#guardar').click(guardarPixelArt);
 
 $('.imgs img').click(function(){
-  var $superheroe = $(this).attr('id');
-  console.log($superheroe);
-  switch ($superheroe) {
-    case 'batman': 
-      cargarSuperheroe(batman);
-      break;
-    case 'flash': 
-      cargarSuperheroe(flash);
-      break;
-    case 'wonder': 
-      cargarSuperheroe(wonder);
-      break;
-    case 'invisible': 
-      cargarSuperheroe(invisible);
-      break;
-  }
+  var $superheroe = eval($(this).attr('id'));
+  cargarSuperheroe($superheroe);
 });
 
 //FUNCIONES ADICIONALES
@@ -133,10 +119,6 @@ $('.color-paleta').hover(
     $(this).removeClass('inner-shadow');
   });
 
-//Asignar segundo color al pincel
-// $('.element').bind("contextmenu",function(e){
-//   alert('Context Menu event has fired!');
-//   return false;
 paleta.addEventListener('contextmenu', cambiarColorSecundario);
 function cambiarColorSecundario (e) {
   var color = e.target.style.backgroundColor
@@ -150,17 +132,47 @@ function pintarSecundario (e) {
 //Goma de borrar.
 var borrar = false;
 var indicadorColorTemp;
+var colorPersonalizadoTemp;
 $('#goma-de-borrar').click(function () {
-  console.log(indicadorColorTemp);
   if (borrar === false) {
     borrar = true;
     indicadorColorTemp = indicadorColor.style.backgroundColor;    
     indicadorColor.style.backgroundColor = 'transparent';
+    colorPersonalizadoTemp = colorPersonalizado.value;
+    colorPersonalizado.value = '#FFFFFF';
+    colorPersonalizado.disabled = true;
   }else{
     borrar = false;
     indicadorColor.style.backgroundColor = indicadorColorTemp;
+    colorPersonalizado.value = colorPersonalizadoTemp;
+    colorPersonalizado.disabled = false;
     
   }
   $('#goma-de-borrar').toggleClass('borde-rojo');
+});
 
+//Animación.
+$(document).ready (function(){
+  let titulo = $('header h1').children();
+  let x = 21;
+  setInterval (function() {
+    for (let i = 0; i < titulo.length; i++) {
+      setTimeout(function () {
+        $(titulo[i]).css('color', nombreColores[x]);
+        $(titulo[i-1]).css('color', nombreColores[x-1]);
+        $(titulo[i-2]).css('color', nombreColores[x-2]);
+        $(titulo[i-3]).css('color', nombreColores[x-3]);
+        $(titulo[i-4]).css('color', nombreColores[x-4]);
+        $(titulo[i-5]).css('color', nombreColores[x-5]);
+        $(titulo[i-6]).css('color', nombreColores[x-6]);
+        $(titulo[i-7]).css('color', nombreColores[x-7]);
+        $(titulo[i-8]).css('color', nombreColores[x-8]);
+      }, (i * 100));
+    }
+  if (x < 118) {
+      x++;  
+    }else{
+      x = 11;
+    }
+  }, 800);
 });
